@@ -1,5 +1,5 @@
 {
-  "name": "Sewa Scooter Bali",
+  "name": "Budi Bali Tours",
   "short_name": "SewaScooter",
   "start_url": "index.html",
   "display": "standalone",
@@ -13,4 +13,3 @@
     }
   ]
 }
-

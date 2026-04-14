@@ -16,9 +16,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        /* GLOBAL RESET */
+        /* GLOBAL RESET - ASLI DARI OM */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; color: #333; line-height: 1.6; overflow-x: hidden; }
+
+        /* MULTI-LANGUAGE TOGGLE */
+        body.lang-id .en { display: none !important; }
+        body.lang-en .id { display: none !important; }
 
         /* PWA INSTALL BUTTON */
         #installBtn {
@@ -34,6 +38,9 @@
         nav { background: #fff; padding: 15px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         .logo { font-weight: bold; font-size: 1.2rem; color: #f39c12; letter-spacing: 1px; }
         .logo span { color: #333; }
+        
+        /* Language Switch Button */
+        .lang-btn { position: absolute; top: 15px; left: 15px; background: #eee; border: none; padding: 5px 10px; border-radius: 15px; font-size: 0.7rem; font-weight: bold; cursor: pointer; }
 
         /* HERO WITH PARALLAX */
         .hero { 
@@ -93,24 +100,27 @@
         #armada, #layanan { scroll-margin-top: 100px; }
     </style>
 </head>
-<body>
+<body class="lang-id">
 
     <button id="installBtn"><i class="fas fa-download"></i> Install App</button>
 
     <nav>
+        <button class="lang-btn" onclick="toggleLang()">ID | EN</button>
         <div class="logo">SEWASCOOTER<span>BALI</span>.COM</div>
     </nav>
 
     <section class="hero" id="home">
         <div data-aos="fade-up">
             <h2>Budi Bali Tours</h2>
-            <p>Eksplorasi Bali dengan Gaya & Nyaman</p>
+            <p class="id">Eksplorasi Bali dengan Gaya & Nyaman</p>
+            <p class="en">Explore Bali with Style & Comfort</p>
         </div>
     </section>
 
     <div class="container">
         <div id="armada" class="section-title" data-aos="fade-up">
-            <h3>Pilihan Armada Terbaik</h3>
+            <h3 class="id">Pilihan Armada Terbaik</h3>
+            <h3 class="en">Our Best Fleet</h3>
             <div class="underline"></div>
         </div>
 
@@ -125,8 +135,11 @@
                 </div>
                 <div class="motor-info">
                     <h4>Vespa Matic</h4>
-                    <p>Unit stylish dan elegan untuk foto estetik di setiap sudut Bali.</p>
-                    <a href="https://wa.me/6281238033247" class="btn-sewa">Sewa Sekarang</a>
+                    <p class="id">Unit stylish dan elegan untuk foto estetik di setiap sudut Bali.</p>
+                    <p class="en">Stylish and elegant units for aesthetic photos in Bali.</p>
+                    <a href="https://wa.me/6281238033247" class="btn-sewa">
+                        <span class="id">Sewa Sekarang</span><span class="en">Rent Now</span>
+                    </a>
                 </div>
             </div>
 
@@ -140,67 +153,113 @@
                 </div>
                 <div class="motor-info">
                     <h4>Honda Stylo 160</h4>
-                    <p>Performa mesin 160cc dengan desain retro modern yang ikonik.</p>
-                    <a href="https://wa.me/6281238033247" class="btn-sewa">Sewa Sekarang</a>
+                    <p class="id">Performa mesin 160cc dengan desain retro modern yang ikonik.</p>
+                    <p class="en">160cc engine performance with iconic retro modern design.</p>
+                    <a href="https://wa.me/6281238033247" class="btn-sewa">
+                        <span class="id">Sewa Sekarang</span><span class="en">Rent Now</span>
+                    </a>
                 </div>
             </div>
 
-            <div class="card-motor" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-motor" data-aos="fade-up">
                 <div class="swiper swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="https://i.ibb.co.com/bfR8Qkf/1646056120-yamaha-fazzio-matik-hybrid-yang-berkelas-dan-memukau.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.ibb.co.com/6JWzTdMw/images-13.jpg"></div>
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
                 <div class="motor-info">
-                    <h4>Yamaha Fazzio</h4>
-                    <p>Pilihan cerdas, lincah, dan sangat irit untuk keliling pantai.</p>
-                    <a href="https://wa.me/6281238033247" class="btn-sewa">Sewa Sekarang</a>
+                    <h4>Honda PCX 160</h4>
+                    <p class="id">Berkendara mewah dengan kenyamanan maksimal untuk jarak jauh.</p>
+                    <p class="en">Luxury riding with maximum comfort for long distance.</p>
+                    <a href="https://wa.me/6281238033247" class="btn-sewa">
+                        <span class="id">Sewa Sekarang</span><span class="en">Rent Now</span>
+                    </a>
                 </div>
             </div>
 
-            <div class="card-motor" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-motor" data-aos="fade-up">
                 <div class="swiper swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="https://i.ibb.co.com/JR3pMRYx/images-12.jpg"></div>
                         <div class="swiper-slide"><img src="https://i.ibb.co.com/1JzVD8KB/NMAX-NEO-S-BLACK.png"></div>
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
                 <div class="motor-info">
                     <h4>Yamaha NMAX</h4>
-                    <p>Kenyamanan maksimal untuk perjalanan jarak jauh (Touring).</p>
-                    <a href="https://wa.me/6281238033247" class="btn-sewa">Sewa Sekarang</a>
+                    <p class="id">Kenyamanan maksimal untuk perjalanan jarak jauh (Touring).</p>
+                    <p class="en">Maximum comfort for long distance trips (Touring).</p>
+                    <a href="https://wa.me/6281238033247" class="btn-sewa">
+                        <span class="id">Sewa Sekarang</span><span class="en">Rent Now</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-motor" data-aos="fade-up">
+                <div class="swiper swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="https://i.ibb.co.com/nqgDF9kV/images-11.jpg"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="motor-info">
+                    <h4>Yamaha Fazzio</h4>
+                    <p class="id">Pilihan cerdas, lincah, dan sangat irit untuk keliling pantai.</p>
+                    <p class="en">Smart, agile, and fuel-efficient for beach cruising.</p>
+                    <a href="https://wa.me/6281238033247" class="btn-sewa">
+                        <span class="id">Sewa Sekarang</span><span class="en">Rent Now</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-motor" data-aos="fade-up">
+                <div class="swiper swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="https://i.ibb.co.com/BHDpWZXS/honda-beat-deluxe-smart-key-deluxe-matte-blue-01-warna.webp"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="motor-info">
+                    <h4>Honda Beat</h4>
+                    <p class="id">Motor yang lincah, ramping, dan sangat hemat bahan bakar.</p>
+                    <p class="en">Agile, slim, and highly fuel-efficient motorcycle.</p>
+                    <a href="https://wa.me/6281238033247" class="btn-sewa">
+                        <span class="id">Sewa Sekarang</span><span class="en">Rent Now</span>
+                    </a>
                 </div>
             </div>
         </div>
         
         <div id="layanan" class="section-title" data-aos="fade-up" style="margin-top: 60px;">
-            <h3>Layanan Unggulan</h3>
+            <h3 class="id">Layanan Unggulan</h3>
+            <h3 class="en">Our Services</h3>
             <div class="underline"></div>
         </div>
 
         <div class="layanan-grid" data-aos="fade-up">
             <div class="layanan-card">
                 <i class="fas fa-motorcycle"></i>
-                <h4>Sewa Motor</h4>
-                <p>Rental Vespa Matic, Stylo, hingga NMAX kondisi prima.</p>
+                <h4 class="id">Sewa Motor</h4><h4 class="en">Bike Rental</h4>
+                <p class="id">Unit Vespa, Stylo, hingga NMAX kondisi prima.</p>
+                <p class="en">Vespa, Stylo, to NMAX in prime condition.</p>
             </div>
             <div class="layanan-card">
                 <i class="fas fa-car-side"></i>
-                <h4>Sewa Mobil</h4>
-                <p>Unit mobil bersih dengan pilihan lepas kunci atau driver.</p>
+                <h4 class="id">Sewa Mobil</h4><h4 class="en">Car Rental</h4>
+                <p class="id">Unit mobil bersih dengan driver atau lepas kunci.</p>
+                <p class="en">Clean units with driver or self-drive options.</p>
             </div>
             <div class="layanan-card">
                 <i class="fas fa-map-location-dot"></i>
-                <h4>Paket Tour</h4>
-                <p>Eksplorasi destinasi ikonik Bali dengan itinerary terbaik.</p>
+                <h4 class="id">Paket Tour</h4><h4 class="en">Tour Packages</h4>
+                <p class="id">Eksplorasi destinasi ikonik Bali itinerary terbaik.</p>
+                <p class="en">Explore Bali's iconic spots with best itinerary.</p>
             </div>
         </div>
 
         <div class="maps-wrapper" data-aos="fade-up">
             <div class="map-frame">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.33385289!2d115.215!3d-8.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwNDInMDAuMCJTIDExNcKwMTInNTQuMCJF!5e0!3m2!1sid!2sid!4v1620000000000!5m2!1sid!2sid" width="100%" height="100%" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3942.8649851601776!2d115.2144342!3d-8.8000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwNDgnMDAuMCJTIDExNcKwMTInNTEuOSJF!5e0!3m2!1sid!2sid!4v1713146430000!5m2!1sid!2sid" width="100%" height="100%" loading="lazy"></iframe>
             </div>
             <p style="font-size: 0.75rem; color: #666; margin-top: 15px; text-align: center;">
                 <i class="fas fa-map-marker-alt" style="color: #f39c12;"></i> Workshop: Jl. Nusa Dua No.82, Kuta Selatan, Bali.
@@ -219,11 +278,11 @@
         </a>
         <a onclick="slowScroll('#armada')" class="nav-item">
             <i class="fas fa-motorcycle"></i>
-            Armada
+            <span class="id">Armada</span><span class="en">Fleet</span>
         </a>
         <a onclick="slowScroll('#layanan')" class="nav-item">
             <i class="fas fa-hand-holding-heart"></i>
-            Layanan
+            <span class="id">Layanan</span><span class="en">Services</span>
         </a>
         <a href="https://instagram.com/budi.balitours" class="nav-item">
             <i class="fab fa-instagram"></i>
@@ -240,27 +299,21 @@
     <script>
         AOS.init({ duration: 1000, once: true });
 
+        // Fungsi Ganti Bahasa
+        function toggleLang() {
+            const body = document.body;
+            if(body.classList.contains('lang-id')) {
+                body.classList.replace('lang-id', 'lang-en');
+            } else {
+                body.classList.replace('lang-en', 'lang-id');
+            }
+        }
+
         function slowScroll(target) {
             const targetElement = document.querySelector(target);
             if (!targetElement) return;
             const offsetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - 90;
-            const startPosition = window.pageYOffset;
-            const distance = offsetPosition - startPosition;
-            const duration = 1800;
-            let start = null;
-
-            window.requestAnimationFrame(function step(timestamp) {
-                if (!start) start = timestamp;
-                const progress = timestamp - start;
-                const ease = progress / duration;
-                const easingValue = ease < 0.5 ? 2 * ease * ease : -1 + (4 - 2 * ease) * ease;
-                window.scrollTo(0, startPosition + distance * easingValue);
-                if (progress < duration) {
-                    window.requestAnimationFrame(step);
-                } else {
-                    AOS.refresh();
-                }
-            });
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
         }
 
         document.querySelectorAll('.swiper').forEach(s => {
@@ -270,28 +323,6 @@
                 pagination: { el: '.swiper-pagination', clickable: true },
             });
         });
-
-        let deferredPrompt;
-        const installBtn = document.getElementById('installBtn');
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            installBtn.style.display = 'block';
-        });
-        installBtn.addEventListener('click', async () => {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                if (outcome === 'accepted') installBtn.style.display = 'none';
-                deferredPrompt = null;
-            }
-        });
-
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('data:text/javascript,self.addEventListener("fetch", (e) => e.respondWith(fetch(e.request)))');
-            });
-        }
     </script>
 </body>
     </html>

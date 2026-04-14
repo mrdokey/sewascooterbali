@@ -1,0 +1,16 @@
+{
+  "name": "Sewa Scooter Bali",
+  "short_name": "SewaScooter",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f39c12",
+  "icons": [
+    {
+      "src": "https://i.ibb.co.com/WpjDP07V/harga-vespa-matic-2023-1.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ]
+}
+

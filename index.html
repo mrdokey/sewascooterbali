@@ -16,6 +16,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
+    /* Style Tombol Install */
+#installBtn {
+    display: none; /* Sembunyi dulu, muncul kalau browser dukung */
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background: #f39c12;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.75rem;
+    z-index: 3000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+    .nav-item:active i {
+    transform: scale(0.8);
+    transition: 0.1s;
+}
+
         /* CSS MANUAL - FIX LAYOUT */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; color: #333; line-height: 1.6; overflow-x: hidden; }

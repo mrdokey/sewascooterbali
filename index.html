@@ -25,11 +25,13 @@
         .logo { font-weight: bold; font-size: 1.2rem; color: #f39c12; letter-spacing: 1px; }
         .logo span { color: #333; }
 
-        /* Hero Parallax */
+        /* Hero Parallax FIX */
         .hero { 
             height: 60vh; 
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800');
-            background-size: cover; background-position: center; background-attachment: fixed;
+            background-size: cover; 
+            background-position: center; 
+            background-attachment: fixed; /* EFEK PARALLAX */
             display: flex; flex-direction: column; justify-content: center; align-items: center; color: #fff; text-align: center; padding: 20px;
         }
         .hero h2 { font-size: 2rem; margin-bottom: 5px; }
@@ -82,7 +84,7 @@
         .layanan-card h4 { margin-bottom: 10px; font-size: 1.1rem; }
         .layanan-card p { font-size: 0.8rem; color: #777; }
 
-        /* Offset Scroll (Supaya judul tidak tertutup navbar) */
+        /* Offset Scroll FIX */
         #armada, #layanan { scroll-margin-top: 80px; }
     </style>
 </head>
@@ -196,7 +198,7 @@
         <div class="maps-wrapper" data-aos="fade-up">
             <h4 style="margin-bottom: 15px; font-weight: bold;">Lokasi Workshop Kami</h4>
             <div class="map-frame">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3942.8631557002574!2d115.2217!3d-8.8033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd243b7e07%3A0x8f8c0e0e0e0e0e0e!2sBudi%20Bali%20Tours!5e0!3m2!1sid!2sid!4v1713131313131" width="100%" height="100%" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15770.83549221162!2d115.22!3d-8.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwNDInMDAuMCJTIDExNcKwMTMnMTIuMCJF!5e0!3m2!1sid!2sid!4v1700000000000" width="100%" height="100%" loading="lazy"></iframe>
             </div>
             <p style="font-size: 0.75rem; color: #666; margin-top: 10px;">
                 <i class="fas fa-map-marker-alt" style="color: #f39c12;"></i> Jl. Beranda Raya Jl. Nusa Dua No.82, Bali.
@@ -218,7 +220,7 @@
             Armada
         </a>
         <a onclick="slowScroll('#layanan')" class="nav-item">
-            <i class="fas fa-concierge-bell"></i>
+            <i class="fas fa-hand-holding-heart"></i>
             Layanan
         </a>
         <a href="https://instagram.com/budi.balitours" class="nav-item">
@@ -234,17 +236,19 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 800, once: true });
+        AOS.init({ duration: 1000, once: true });
         
-        // FUNGSI ULTRA SLOW SCROLL (1.5 DETIK)
+        // FUNGSI ULTRA SLOW SCROLL DENGAN AOS REFRESH
         function slowScroll(target) {
             const targetElement = document.querySelector(target);
+            if (!targetElement) return;
+
             const headerOffset = 80;
             const elementPosition = targetElement.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
             const startPosition = window.pageYOffset;
             const distance = offsetPosition - startPosition;
-            const duration = 1500; // SEMAKIN BESAR ANGKA INI, SEMAKIN PELAN (1500 = 1.5 detik)
+            const duration = 1800; // SEDIKIT LEBIH PELAN BIAR LEBIH MEWAH
             let start = null;
 
             window.requestAnimationFrame(step);
@@ -254,13 +258,16 @@
                 const progress = timestamp - start;
                 const ease = progress / duration;
                 
-                // Rumus Easing In-Out (Biar mulus pas mulai dan berhenti)
+                // Rumus Easing In-Out yang lebih smooth
                 const easingValue = ease < 0.5 ? 2 * ease * ease : -1 + (4 - 2 * ease) * ease;
 
                 window.scrollTo(0, startPosition + distance * easingValue);
 
                 if (progress < duration) {
                     window.requestAnimationFrame(step);
+                } else {
+                    // PENTING: Refresh AOS setelah scroll selesai agar animasi muncul
+                    AOS.refresh();
                 }
             }
         }

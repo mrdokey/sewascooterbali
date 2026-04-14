@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3721/3721619.png">
+    
+    <title>Budi Bali Tour - Sewa Motor Premium Bali</title>
+    <meta name="description" content="Sewa motor premium di Bali. Honda PCX, Yamaha Nmax, Vespa Matic, dan lainnya. Harga terbaik dan unit terawat di Budi Bali Tour.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root { 
+            --primary-color: #f39c12; /* Warna khas Budi Bali Tour */
+            --dark-bg: #1a1d20; 
+        }
+        body { background-color: #fcfcfc; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        /* Navbar & Hero */
+        .navbar { transition: all 0.4s; padding: 20px 0; }
+        .navbar.scrolled { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 12px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .navbar-brand { font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; color: #fff; }
+        .nav-link { font-weight: 600; color: #fff !important; margin-left: 20px; }
+        .scrolled .nav-link { color: #333 !important; }
+        .scrolled .navbar-brand { color: var(--primary-color); }
+
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center;
+            color: white; text-align: center; clip-path: ellipse(150% 100% at 50% 0%); margin-bottom: 50px;
+        }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 10px; }
+
+        /* Cards */
+        .card-motor { border: none; border-radius: 24px; background: #fff; transition: 0.4s; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.03); margin-bottom: 20px; }
+        .card-motor:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .img-wrapper { position: relative; height: 220px; overflow: hidden; }
+        .img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .badge-status { position: absolute; top: 15px; left: 15px; padding: 6px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; z-index: 2; color: #fff; }
+
+/* Status Colors Updated */
+.status-available { background-color: #0d6efd !important; } /* Biru */
+.status-rent { background-color: #198754 !important; }      /* Hijau */
+.status-booked { background-color: #ff9800 !important; }    /* Orange (Warning) */
+
+
+        /* Footer */
+        footer { background: var(--dark-bg); color: #adb5bd; padding: 80px 0 30px; margin-top: 100px; }
+        footer h5 { color: #fff; font-weight: 800; margin-bottom: 25px; }
+        .social-icons a { width: 40px; height: 40px; background: #2c3034; display: inline-flex; align-items: center; justify-content: center; border-radius: 10px; color: #fff; margin-right: 10px; transition: 0.3s; text-decoration: none; }
+        .social-icons a:hover { background: var(--primary-color); transform: translateY(-5px); }
+        .section-title::after { content: ''; display: block; width: 60px; height: 5px; background: var(--primary-color); margin: 15px auto; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Budi <span style="color: var(--primary-color)">Bali Tour</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link fw-bold text-warning" href="cariunit.html"><i class="fas fa-calendar-check me-1"></i> Check Availability</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="container">
+        <h1>Explore Bali.</h1>
+        <p>Armada motor premium untuk pengalaman terbaik perjalanan Anda di Pulau Dewata.</p>
+        <div class="mt-4">
+            <a href="#catalog" class="btn btn-warning btn-lg px-5 py-3 fw-bold rounded-pill shadow-lg text-white">Lihat Katalog</a>
+        </div>
+    </div>
+</header>
+
+<div class="container my-5 py-5" id="catalog">
+    <div class="text-center">
+        <h2 class="section-title fw-800">Our Collection</h2>
+    </div>
+
+    <div id="loading" class="text-center py-5">
+        <div class="spinner-grow text-warning"></div>
+        <p class="mt-3 fw-bold text-muted">Menyiapkan armada...</p>
+    </div>
+
+    <div class="row g-4" id="catalogContainer"></div>
+</div>
+
+<div class="modal fade" id="detailModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
+            <div id="modalContent"></div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-4">
+                <h5>Budi <span style="color: var(--primary-color)">Bali Tour</span></h5>
+                <p>Memberikan pengalaman sewa motor terbaik dengan proses mudah dan unit yang selalu prima. Keamanan Anda adalah prioritas kami.</p>
+                <div class="social-icons mt-4">
+                    <a href="https://instagram.com/budi.balitours" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/6281238033247" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h5>Kontak</h5>
+                <p><i class="fas fa-map-marker-alt me-2 text-warning"></i> Jl. Nusa Dua No.82, Kuta Selatan, Bali</p>
+                <p><i class="fas fa-phone-alt me-2 text-warning"></i> +62 812 3803 3247</p>
+            </div>
+            <div class="col-lg-4">
+                <h5>Lokasi Kami</h5>
+                <div style="border-radius: 20px; overflow: hidden; height: 200px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3942.864344555896!2d115.2155!3d-8.8025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd243000676450d%3A0x3f1f0a0a0a0a0a0a!2sJl.%20Nusa%20Dua%20No.82%2C%20Benoa%2C%20Kec.%20Kuta%20Sel.%2C%20Kabupaten%20Badung%2C%20Bali!5e0!3m2!1sid!2sid!4v1713160000000!5m2!1sid!2sid" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <hr class="mt-5 mb-4" style="border-color: rgba(255,255,255,0.1);">
+        <div class="text-center small">
+            <p>© 2026 <b>Budi Bali Tour</b>. Managed by MRD Digital Solution.</p>
+        </div>
+    </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Nav Scroll Effect
+    window.addEventListener('scroll', function() {
+        const nav = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+
+    const API_URL = "https://script.google.com/macros/s/AKfycbyvXVcpkMsnPKEqORXpQYMrNJ4spjzwACGP2abuDJEmSdz2_pNnxfa4lW2Afh_1fiqshw/exec";
+    const adminWA = "6281238033247";
+
+    async function loadCatalog() {
+        try {
+            const res = await fetch(API_URL);
+            const data = await res.json();
+            renderCatalog(data.items);
+            document.getElementById('loading').style.display = 'none';
+        } catch (e) { console.error(e); }
+    }
+
+    function renderCatalog(items) {
+        const container = document.getElementById('catalogContainer');
+        container.innerHTML = "";
+        items.forEach(m => {
+            const statusRaw = (m[5] || "Available").toLowerCase();
+            let badgeClass = "status-available";
+            let statusText = "Available";
+
+            if(statusRaw === "rent") {
+                badgeClass = "status-rent";
+                statusText = "In Rent";
+            } else if(statusRaw === "booked") {
+                badgeClass = "status-booked";
+                statusText = "Booked";
+            }
+
+            container.innerHTML += `
+                <div class="col-lg-4 col-md-6">
+                    <div class="card card-motor h-100 p-3">
+                        <div class="img-wrapper rounded-4">
+                            <span class="badge-status ${badgeClass}">${statusText}</span>
+                            <img src="${m[4] || 'https://via.placeholder.com/400x250'}" alt="${m[1]}">
+                        </div>
+                        <div class="card-body px-1 text-center">
+                            <small class="fw-bold text-warning text-uppercase">${m[2]}</small>
+                            <h5 class="fw-bold text-dark mb-4">${m[1]}</h5>
+                            <button onclick="openDetail('${m[2]}', '${m[1]}', '${m[0]}', '${m[3]}', '${m[4]}', '${statusText}', '${badgeClass}')" class="btn btn-outline-dark w-100 py-2 rounded-3 fw-bold">Detail Unit</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    function openDetail(brand, type, plate, price, img, status, badgeClass) {
+        const modalContent = document.getElementById('modalContent');
+        // Format Rupiah dengan titik
+        const formattedPrice = Number(price).toLocaleString('id-ID');
+
+        modalContent.innerHTML = `
+            <div class="position-relative">
+                <img src="${img || 'https://via.placeholder.com/400x250'}" class="w-100" style="height:280px; object-fit:cover;">
+                <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="p-4">
+                <div class="mb-4">
+                    <h3 class="fw-800 text-dark mb-1">${brand} ${type}</h3>
+                    <p class="text-muted"><i class="fas fa-id-card me-2"></i>Plat: <b>${plate}</b></p>
+                </div>
+                <div class="row mb-4 g-2">
+                    <div class="col-6"><div class="p-3 bg-light rounded-4 text-center"><small class="d-block text-muted">Harga/Hari</small><span class="fw-bold text-primary">Rp ${formattedPrice}</span></div></div>
+                    <div class="col-6"><div class="p-3 bg-light rounded-4 text-center"><small class="d-block text-muted">Status</small><span class="badge ${badgeClass} text-white">${status}</span></div></div>
+                </div>
+                <div class="d-grid gap-2">
+                    <a href="https://wa.me/${adminWA}?text=Halo Budi Bali Tour, saya ingin sewa ${brand} ${type} (${plate}). Apakah tersedia?" target="_blank" class="btn btn-success py-3 fw-bold rounded-3"><i class="fab fa-whatsapp me-2"></i>Hubungi Admin</a>
+                </div>
+            </div>
+        `;
+        new bootstrap.Modal(document.getElementById('detailModal')).show();
+    }
+    loadCatalog();
+</script>
+</body>
+  </html>
+

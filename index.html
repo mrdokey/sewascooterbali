@@ -34,13 +34,42 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer;
         }
 
-        /* NAVBAR */
-        nav { background: #fff; padding: 15px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        /* NAVBAR - DIPERBARUI ALA LAZADA */
+        nav { 
+            background: #fff; 
+            padding: 15px 20px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
         .logo { font-weight: bold; font-size: 1.2rem; color: #f39c12; letter-spacing: 1px; }
         .logo span { color: #333; }
         
-        /* Language Switch Button */
-        .lang-btn { position: absolute; top: 15px; left: 15px; background: #eee; border: none; padding: 5px 10px; border-radius: 15px; font-size: 0.7rem; font-weight: bold; cursor: pointer; }
+        /* Language Switch Button - DIPERCANTIK */
+        .lang-btn { 
+            background: #fff; 
+            color: #333;
+            border: 1px solid #ccc; 
+            padding: 6px 14px; 
+            border-radius: 20px; 
+            font-size: 0.75rem; 
+            font-weight: 700; 
+            cursor: pointer; 
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .lang-btn:hover { 
+            background: #f39c12; 
+            color: #fff;
+            border-color: #f39c12;
+        }
 
         /* HERO WITH PARALLAX */
         .hero { 
@@ -105,8 +134,10 @@
     <button id="installBtn"><i class="fas fa-download"></i> Install App</button>
 
     <nav>
-        <button class="lang-btn" onclick="toggleLang()">ID | EN</button>
         <div class="logo">SEWASCOOTER<span>BALI</span>.COM</div>
+        <button class="lang-btn" onclick="toggleLang()">
+            <i class="fas fa-globe"></i> ID | EN
+        </button>
     </nav>
 
     <section class="hero" id="home">
@@ -228,6 +259,92 @@
                     </a>
                 </div>
             </div>
+
+            <div class="card-motor" data-aos="fade-up">
+                <div class="swiper swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="https://cdn.antaranews.com/cache/1200x800/2024/11/07/1000446916.jpg"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="motor-info">
+                    <h4>Yamaha Grand Filano</h4>
+                    <p class="id">Skutik retro modern dengan teknologi hybrid yang stylish.</p>
+                    <p class="en">Modern retro scooter with stylish hybrid technology.</p>
+                    <a href="https://wa.me/6281238033247" class="btn-sewa">
+                        <span class="id">Sewa Sekarang</span><span class="en">Rent Now</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-motor" data-aos="fade-up">
+                <div class="swiper swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="https://www.wahanahonda.com/assets/upload/produk/gambar/PRODUK_GAMBAR_48_2025-11-13.webp"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="motor-info">
+                    <h4>Honda Scoopy</h4>
+                    <p class="id">Desain unik dan fashionable, nyaman untuk perjalanan santai.</p>
+                    <p class="en">Unique fashionable design, comfortable for relaxing trips.</p>
+                    <a href="https://wa.me/6281238033247" class="btn-sewa">
+                        <span class="id">Sewa Sekarang</span><span class="en">Rent Now</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-motor" data-aos="fade-up">
+                <div class="swiper swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="https://www.dsf.my/wp-content/uploads/2021/11/Daihatsu-XENIA.jpeg?v=1636981406"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="motor-info">
+                    <h4>Daihatsu Xenia Matic</h4>
+                    <p class="id">Mobil keluarga luas dan nyaman, cocok untuk rombongan.</p>
+                    <p class="en">Spacious family car, perfect for groups or families.</p>
+                    <a href="https://wa.me/6281238033247" class="btn-sewa">
+                        <span class="id">Sewa Sekarang</span><span class="en">Rent Now</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-motor" data-aos="fade-up">
+                <div class="swiper swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="https://i.ibb.co.com/Cp1Kvz4H/IMG-20260415-192622.jpg"></div>
+                        <div class="swiper-slide"><img src="https://i.ibb.co.com/pB6gmpNL/IMG-20260415-192840.jpg"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="motor-info">
+                    <h4>Galeri Customer</h4>
+                    <p class="id">Momen serah terima unit dan senyum puas pelanggan kami.</p>
+                    <p class="en">Unit handover moments and smiles from our happy customers.</p>
+                    <a href="https://instagram.com/budi.balitours" target="_blank" class="btn-sewa" style="background: #E1306C;">
+                        <i class="fab fa-instagram me-1"></i> <span class="id">Lihat di Instagram</span><span class="en">View Instagram</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-motor" data-aos="fade-up">
+                <div class="swiper swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHnrZluL60EKq61Ru1c0JSpnIwA0a_PfZS8A&s"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="motor-info">
+                    <h4>Tour Nusa Penida</h4>
+                    <p class="id">Jelajahi surga tersembunyi Bali. Trip Barat & Mix Trip.</p>
+                    <p class="en">Explore Bali's hidden paradise. West Trip & Mix Trip.</p>
+                    <a href="tournusapenida.html" class="btn-sewa" style="background: #0d3b44;">
+                        <i class="fas fa-map-location-dot me-1"></i> <span class="id">Detail Paket</span><span class="en">Package Details</span>
+                    </a>
+                </div>
+            </div>
         </div>
         
         <div id="layanan" class="section-title" data-aos="fade-up" style="margin-top: 60px;">
@@ -259,70 +376,4 @@
 
         <div class="maps-wrapper" data-aos="fade-up">
             <div class="map-frame">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3942.8649851601776!2d115.2144342!3d-8.8000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwNDgnMDAuMCJTIDExNcKwMTInNTEuOSJF!5e0!3m2!1sid!2sid!4v1713146430000!5m2!1sid!2sid" width="100%" height="100%" loading="lazy"></iframe>
-            </div>
-            <p style="font-size: 0.75rem; color: #666; margin-top: 15px; text-align: center;">
-                <i class="fas fa-map-marker-alt" style="color: #f39c12;"></i> Workshop: Jl. Nusa Dua No.82, Kuta Selatan, Bali.
-            </p>
-        </div>
-    </div>
-
-    <footer>
-        <p>© 2026 budi.balitours | Managed by MRD Digital Solution</p>
-    </footer>
-
-    <div class="floating-nav">
-        <a onclick="slowScroll('#home')" class="nav-item">
-            <i class="fas fa-home"></i>
-            Home
-        </a>
-        <a href="showunit.html" class="nav-item">
-            <i class="fas fa-motorcycle"></i>
-            <span class="id">Armada</span><span class="en">Fleet</span>
-        </a>
-        <a onclick="slowScroll('#layanan')" class="nav-item">
-            <i class="fas fa-hand-holding-heart"></i>
-            <span class="id">Layanan</span><span class="en">Services</span>
-        </a>
-        <a href="https://instagram.com/budi.balitours" class="nav-item">
-            <i class="fab fa-instagram"></i>
-            Instagram
-        </a>
-        <a href="https://wa.me/6281238033247" class="nav-item">
-            <i class="fab fa-whatsapp"></i>
-            WhatsApp
-        </a>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-
-        // Fungsi Ganti Bahasa
-        function toggleLang() {
-            const body = document.body;
-            if(body.classList.contains('lang-id')) {
-                body.classList.replace('lang-id', 'lang-en');
-            } else {
-                body.classList.replace('lang-en', 'lang-id');
-            }
-        }
-
-        function slowScroll(target) {
-            const targetElement = document.querySelector(target);
-            if (!targetElement) return;
-            const offsetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - 90;
-            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-        }
-
-        document.querySelectorAll('.swiper').forEach(s => {
-            new Swiper(s, {
-                loop: true,
-                autoplay: { delay: 3000 },
-                pagination: { el: '.swiper-pagination', clickable: true },
-            });
-        });
-    </script>
-</body>
-</html>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3942.8649851601776!2d115.2144342!3d-8.8000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwNDgnMDAuMCJTIDExNcKwMTInNTEuOSJF!5e0!3m2!1sid!2sid!4v17131464300

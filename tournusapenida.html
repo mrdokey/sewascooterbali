@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Paket Tour Nusa Penida | Budi Bali Tour - sewascooterbali.com</title>
+    <meta name="description" content="Paket Tour Nusa Penida terbaik dari Budi Bali Tour. Tersedia Trip Barat dan Mix Trip mengunjungi Kelingking Beach, Diamond Beach, dan destinasi ikonik lainnya.">
+    <meta name="keywords" content="tour nusa penida, paket tour bali, budi bali tour, trip barat nusa penida, mix trip nusa penida, sewa motor bali">
+    <meta name="author" content="Budi Bali Tour">
+    
+    <meta property="og:title" content="Paket Tour Nusa Penida - Budi Bali Tour">
+    <meta property="og:description" content="Eksplorasi keindahan Nusa Penida dengan layanan profesional dari Budi Bali Tour.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1573050964145-815339f1505d?q=80&w=1200">
+    <meta property="og:url" content="https://sewascooterbali.com/tournusapenida.html">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "Budi Bali Tour",
+      "url": "https://sewascooterbali.com",
+      "telephone": "+6281238033247",
+      "priceRange": "IDR 1.100.000 - IDR 2.500.000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Nusa Dua No.82, Kuta Selatan",
+        "addressLocality": "Bali",
+        "addressCountry": "ID"
+      }
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root { --primary-color: #f39c12; --dark-teal: #0d3b44; }
+        body { background-color: #f8f9fa; font-family: 'Plus Jakarta Sans', sans-serif; color: #333; }
+
+        /* NAVBAR KEMBALI */
+        .navbar-top { 
+            background: #fff; 
+            padding: 12px 20px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+        .btn-back {
+            background: #f1f3f5; color: #333; border-radius: 20px; padding: 6px 15px;
+            font-size: 0.8rem; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 6px; transition: 0.3s;
+        }
+        .btn-back:hover { background: var(--primary-color); color: white; }
+        .logo { font-weight: 800; font-size: 1.1rem; color: var(--primary-color); letter-spacing: 0.5px; }
+        .logo span { color: #333; }
+
+        .header-tour {
+            background: linear-gradient(rgba(13, 59, 68, 0.7), rgba(13, 59, 68, 0.9)), url('https://images.unsplash.com/photo-1573050964145-815339f1505d?q=80&w=1200');
+            background-size: cover; background-position: center;
+            color: white; padding: 60px 0; border-radius: 0 0 40px 40px; text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-pills { justify-content: center; margin-top: -25px; }
+        .nav-pills .nav-link { 
+            background: white; color: var(--dark-teal); border-radius: 50px; 
+            margin: 0 8px; padding: 12px 28px; font-weight: 800;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); border: none; transition: 0.3s;
+        }
+        .nav-pills .nav-link:hover { transform: translateY(-2px); }
+        .nav-pills .nav-link.active { background: var(--primary-color); color: white; }
+
+        /* Destinasi Grid (Horizontal Scroll) */
+        .destinasi-grid { display: flex; overflow-x: auto; gap: 15px; padding: 15px 5px; scrollbar-width: none; -ms-overflow-style: none; }
+        .destinasi-grid::-webkit-scrollbar { display: none; }
+        .destinasi-item { min-width: 150px; text-align: center; cursor: pointer; }
+        .destinasi-item img { width: 150px; height: 150px; object-fit: cover; border-radius: 20px; box-shadow: 0 5px 10px rgba(0,0,0,0.1); border: 3px solid white; transition: 0.3s ease; }
+        .destinasi-item:hover img { transform: scale(1.05); box-shadow: 0 8px 15px rgba(0,0,0,0.2); border-color: var(--primary-color); }
+        .destinasi-item small { display: block; margin-top: 10px; font-weight: 800; color: var(--dark-teal); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        .card-main { border: none; border-radius: 30px; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.05); overflow: hidden; transition: 0.3s; }
+        .card-main:hover { box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
+        
+        .price-box { background: var(--dark-teal); color: white; border-radius: 25px; padding: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .price-row { display: flex; justify-content: space-between; border-bottom: 1px dashed rgba(255,255,255,0.2); padding: 12px 0; font-weight: 600; font-size: 1.1rem; }
+        .price-row:last-child { border: none; }
+
+        .check-list { list-style: none; padding: 0; }
+        .check-list li { padding: 8px 0; font-size: 0.95rem; display: flex; align-items: center; font-weight: 600; color: #555; }
+        .check-list i { color: #27ae60; margin-right: 12px; font-size: 1.2rem; }
+
+        /* BUTTON ANIMATIONS */
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        @keyframes pulse-orange {
+            0% { box-shadow: 0 0 0 0 rgba(211, 84, 0, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(211, 84, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(211, 84, 0, 0); }
+        }
+        .btn-wa { background: #25d366; color: white; border-radius: 15px; padding: 18px; font-weight: 800; text-decoration: none; display: block; text-align: center; font-size: 1.1rem; transition: 0.3s; border: none; animation: pulse-green 2s infinite; }
+        .btn-wa:hover { background: #1da851; color: white; transform: translateY(-3px); }
+        .btn-wa-mix { animation: pulse-orange 2s infinite; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar-top">
+    <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali</a>
+    <div class="logo">SEWASCOOTER<span>BALI</span></div>
+</nav>
+
+<header class="header-tour">
+    <div class="container">
+        <h1 class="fw-800 display-5" style="letter-spacing: 1px;">NUSA PENIDA TOUR</h1>
+        <p class="lead" style="font-weight: 400; opacity: 0.9;">Eksplorasi Keindahan Alam Bersama Budi Bali Tour</p>
+    </div>
+</header>
+
+<div class="container mt-4 mb-5">
+    <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
+        <li class="nav-item">
+            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#barat">TRIP BARAT</button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#mix">MIX TRIP</button>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="barat">
+            <div class="destinasi-grid mb-4">
+                <div class="destinasi-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9XXqpOZ44EpQzA5BX-d5N2wVaiAPiu_ITOQ&s"><small>Kelingking Beach</small></div>
+                <div class="destinasi-item"><img src="https://balicanezatour.com/wp-content/uploads/2022/01/Paluang-Cliff-Penida-1.jpg"><small>Paluang Cliff</small></div>
+                <div class="destinasi-item"><img src="https://nusapenida.org/wp-content/uploads/2018/06/Angel-Billabong-Nusa-Penida-Bali-before-the-wave.jpg"><small>Angel Billabong</small></div>
+                <div class="destinasi-item"><img src="https://indonesiajuara.asia/wp-content/uploads/2024/03/Broken-Beach-Nusa-Penida_NEW.webp"><small>Broken Beach</small></div>
+                <div class="destinasi-item"><img src="https://lovebali.baliprov.go.id/storage/touriest_destinations/img-16969868116525f6bb164e1.jpg"><small>Crystal Bay</small></div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-7">
+                    <div class="card-main p-4 h-100">
+                        <h4 class="fw-800 mb-4" style="color: var(--dark-teal)"><i class="fas fa-list-check me-2 text-primary"></i>Fasilitas Trip Barat</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="check-list">
+                                    <li><i class="fas fa-check-circle"></i> Fastboat PP</li>
+                                    <li><i class="fas fa-check-circle"></i> Makan Siang</li>
+                                    <li><i class="fas fa-check-circle"></i> Air Mineral</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="check-list">
+                                    <li><i class="fas fa-check-circle"></i> Driver / Guide</li>
+                                    <li><i class="fas fa-check-circle"></i> Retribusi Pulau</li>
+                                    <li><i class="fas fa-check-circle"></i> Parkir</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <hr class="mt-4 mb-3" style="border-color: #eee;">
+                        <p class="small text-muted mb-0"><i class="fas fa-info-circle me-1"></i> *Belum termasuk: Kebutuhan pribadi & tiket objek wisata tertentu.</p>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="price-box">
+                        <h5 class="text-center mb-4 fw-800 text-warning"><i class="fas fa-tags me-2"></i>Harga Paket Barat</h5>
+                        <div class="price-row"><span>2 Orang</span> <span>Rp 1.100.000</span></div>
+                        <div class="price-row"><span>3 Orang</span> <span>Rp 1.400.000</span></div>
+                        <div class="price-row"><span>4 Orang</span> <span>Rp 1.700.000</span></div>
+                        <div class="price-row"><span>5 Orang</span> <span>Rp 2.000.000</span></div>
+                        <div class="price-row"><span>6 Orang</span> <span>Rp 2.300.000</span></div>
+                        <a href="https://wa.me/6281238033247?text=Halo Budi Bali Tour, saya ingin pesan Paket Barat Nusa Penida" class="btn-wa mt-4">
+                            <i class="fab fa-whatsapp me-2 fs-5"></i> Booking Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="mix">
+            <div class="destinasi-grid mb-4">
+                <div class="destinasi-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9XXqpOZ44EpQzA5BX-d5N2wVaiAPiu_ITOQ&s"><small>Kelingking Beach</small></div>
+                <div class="destinasi-item"><img src="https://balicanezatour.com/wp-content/uploads/2022/01/Paluang-Cliff-Penida-1.jpg"><small>Paluang Cliff</small></div>
+                <div class="destinasi-item"><img src="https://www.journeyera.com/wp-content/uploads/2023/07/RUMAH-POHON-NUSA-PENIDA-TREEHOUSE-6-1024x683.jpg"><small>Tree House</small></div>
+                <div class="destinasi-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHnrZluL60EKq61Ru1c0JSpnIwA0a_PfZS8A&s"><small>Diamond Beach</small></div>
+                <div class="destinasi-item"><img src="https://indonesiajuara.asia/en/wp-content/uploads/elementor/thumbs/Balbulol-e1748932866729-1-r7iodoxqy2hpr10dah9zmzw5g1d9ygxm95p20nn0qw.webp"><small>Raja Lima</small></div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-7">
+                    <div class="card-main p-4 h-100">
+                        <h4 class="fw-800 mb-4" style="color: var(--dark-teal)"><i class="fas fa-list-check me-2 text-warning"></i>Fasilitas Mix Trip</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="check-list">
+                                    <li><i class="fas fa-check-circle"></i> Fastboat PP</li>
+                                    <li><i class="fas fa-check-circle"></i> Makan Siang</li>
+                                    <li><i class="fas fa-check-circle"></i> Air Mineral</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="check-list">
+                                    <li><i class="fas fa-check-circle"></i> Driver / Guide</li>
+                                    <li><i class="fas fa-check-circle"></i> Tiket Masuk Objek</li>
+                                    <li><i class="fas fa-check-circle"></i> Parkir</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <hr class="mt-4 mb-3" style="border-color: #eee;">
+                        <p class="small text-muted mb-0"><i class="fas fa-info-circle me-1"></i> *Belum termasuk: Kebutuhan pribadi.</p>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="price-box" style="background: #e67e22;">
+                        <h5 class="text-center mb-4 fw-800 text-white"><i class="fas fa-tags me-2"></i>Harga Paket Mix</h5>
+                        <div class="price-row"><span>2 Orang</span> <span>Rp 1.300.000</span></div>
+                        <div class="price-row"><span>3 Orang</span> <span>Rp 1.600.000</span></div>
+                        <div class="price-row"><span>4 Orang</span> <span>Rp 1.900.000</span></div>
+                        <div class="price-row"><span>5 Orang</span> <span>Rp 2.200.000</span></div>
+                        <div class="price-row"><span>6 Orang</span> <span>Rp 2.500.000</span></div>
+                        <a href="https://wa.me/6281238033247?text=Halo Budi Bali Tour, saya ingin pesan Paket Mix Nusa Penida" class="btn-wa btn-wa-mix mt-4" style="background: #d35400;">
+                            <i class="fab fa-whatsapp me-2 fs-5"></i> Booking Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="mt-5 py-5 text-center border-top bg-white">
+    <div class="container">
+        <p class="mb-1">© 2026 <b>Budi Bali Tour</b>. All Rights Reserved.</p>
+        <p class="small text-muted">Official Website: <a href="https://sewascooterbali.com" style="text-decoration: none; color: inherit;">sewascooterbali.com</a></p>
+        <p class="small mt-3" style="font-size: 0.7rem; opacity: 0.6;">Developed by MRD Digital Solution</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+  </html>
+          

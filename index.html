@@ -8,7 +8,6 @@
       gtag('js', new Date()); 
       gtag('config', 'AW-18092766626'); 
     </script>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -141,6 +140,38 @@
 
         /* SCROLL FIX */
         #armada, #layanan { scroll-margin-top: 100px; }
+
+        /* FLOATING BOOKING BUTTON UNTUK INDEX */
+        .floating-booking {
+            position: fixed;
+            bottom: 90px; /* Dinaikkan sedikit agar tidak nabrak menu bawah */
+            right: 20px;
+            background-color: #f39c12; 
+            color: #fff;
+            padding: 14px 22px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(243, 156, 18, 0.5);
+            font-weight: 800;
+            font-size: 0.95rem;
+            z-index: 1500;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            animation: slideUpFade 0.8s ease-out;
+        }
+        .floating-booking i { font-size: 1.1rem; }
+        .floating-booking:hover {
+            background-color: #d68910;
+            color: #fff;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(243, 156, 18, 0.6);
+        }
+        @keyframes slideUpFade {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
     </style>
 </head>
 <body class="lang-id">
@@ -182,7 +213,7 @@
                     <h4>Vespa Matic</h4>
                     <p class="id">Unit stylish dan elegan untuk foto estetik di setiap sudut Bali.</p>
                     <p class="en">Stylish and elegant units for aesthetic photos in Bali.</p>
-                    <a href="https://wa.me/6281238033247" class="btn-sewa">
+                    <a href="https://wa.me/6281238033247" target="_blank" onclick="if(typeof gtag === 'function') { gtag('event', 'conversion', {'send_to': 'AW-18092766626/ZDZwCI_MxZwcEKLrprND', 'value': 1.0, 'currency': 'IDR'}); }" class="btn-sewa">
                         <span class="id">Sewa Sekarang</span><span class="en">Rent Now</span>
                     </a>
                 </div>
@@ -200,7 +231,7 @@
                     <h4>Honda Stylo 160</h4>
                     <p class="id">Performa mesin 160cc dengan desain retro modern yang ikonik.</p>
                     <p class="en">160cc engine performance with iconic retro modern design.</p>
-                    <a href="https://wa.me/6281238033247" class="btn-sewa">
+                    <a href="https://wa.me/6281238033247" target="_blank" onclick="if(typeof gtag === 'function') { gtag('event', 'conversion', {'send_to': 'AW-18092766626/ZDZwCI_MxZwcEKLrprND', 'value': 1.0, 'currency': 'IDR'}); }" class="btn-sewa">
                         <span class="id">Sewa Sekarang</span><span class="en">Rent Now</span>
                     </a>
                 </div>
@@ -217,7 +248,7 @@
                     <h4>Yamaha NMAX</h4>
                     <p class="id">Berkendara mewah dengan kenyamanan maksimal untuk jarak jauh.</p>
                     <p class="en">Luxury riding with maximum comfort for long distance.</p>
-                    <a href="https://wa.me/6281238033247" class="btn-sewa">
+                    <a href="https://wa.me/6281238033247" target="_blank" onclick="if(typeof gtag === 'function') { gtag('event', 'conversion', {'send_to': 'AW-18092766626/ZDZwCI_MxZwcEKLrprND', 'value': 1.0, 'currency': 'IDR'}); }" class="btn-sewa">
                         <span class="id">Sewa Sekarang</span><span class="en">Rent Now</span>
                     </a>
                 </div>
@@ -234,7 +265,7 @@
                     <h4>Honda Vario 125</h4>
                     <p class="id">Kenyamanan maksimal untuk perjalanan jarak jauh (Touring).</p>
                     <p class="en">Maximum comfort for long distance trips (Touring).</p>
-                    <a href="https://wa.me/6281238033247" class="btn-sewa">
+                    <a href="https://wa.me/6281238033247" target="_blank" onclick="if(typeof gtag === 'function') { gtag('event', 'conversion', {'send_to': 'AW-18092766626/ZDZwCI_MxZwcEKLrprND', 'value': 1.0, 'currency': 'IDR'}); }" class="btn-sewa">
                         <span class="id">Sewa Sekarang</span><span class="en">Rent Now</span>
                     </a>
                 </div>
@@ -251,7 +282,7 @@
                     <h4>Yamaha Fazzio</h4>
                     <p class="id">Pilihan cerdas, lincah, dan sangat irit untuk keliling pantai.</p>
                     <p class="en">Smart, agile, and fuel-efficient for beach cruising.</p>
-                    <a href="https://wa.me/6281238033247" class="btn-sewa">
+                    <a href="https://wa.me/6281238033247" target="_blank" onclick="if(typeof gtag === 'function') { gtag('event', 'conversion', {'send_to': 'AW-18092766626/ZDZwCI_MxZwcEKLrprND', 'value': 1.0, 'currency': 'IDR'}); }" class="btn-sewa">
                         <span class="id">Sewa Sekarang</span><span class="en">Rent Now</span>
                     </a>
                 </div>
@@ -268,7 +299,7 @@
                     <h4>Honda Beat</h4>
                     <p class="id">Motor yang lincah, ramping, dan sangat hemat bahan bakar.</p>
                     <p class="en">Agile, slim, and highly fuel-efficient motorcycle.</p>
-                    <a href="https://wa.me/6281238033247" class="btn-sewa">
+                    <a href="https://wa.me/6281238033247" target="_blank" onclick="if(typeof gtag === 'function') { gtag('event', 'conversion', {'send_to': 'AW-18092766626/ZDZwCI_MxZwcEKLrprND', 'value': 1.0, 'currency': 'IDR'}); }" class="btn-sewa">
                         <span class="id">Sewa Sekarang</span><span class="en">Rent Now</span>
                     </a>
                 </div>
@@ -285,7 +316,7 @@
                     <h4>Yamaha Grand Filano</h4>
                     <p class="id">Skutik retro modern dengan teknologi hybrid yang stylish.</p>
                     <p class="en">Modern retro scooter with stylish hybrid technology.</p>
-                    <a href="https://wa.me/6281238033247" class="btn-sewa">
+                    <a href="https://wa.me/6281238033247" target="_blank" onclick="if(typeof gtag === 'function') { gtag('event', 'conversion', {'send_to': 'AW-18092766626/ZDZwCI_MxZwcEKLrprND', 'value': 1.0, 'currency': 'IDR'}); }" class="btn-sewa">
                         <span class="id">Sewa Sekarang</span><span class="en">Rent Now</span>
                     </a>
                 </div>
@@ -302,7 +333,7 @@
                     <h4>Honda Scoopy</h4>
                     <p class="id">Desain unik dan fashionable, nyaman untuk perjalanan santai.</p>
                     <p class="en">Unique fashionable design, comfortable for relaxing trips.</p>
-                    <a href="https://wa.me/6281238033247" class="btn-sewa">
+                    <a href="https://wa.me/6281238033247" target="_blank" onclick="if(typeof gtag === 'function') { gtag('event', 'conversion', {'send_to': 'AW-18092766626/ZDZwCI_MxZwcEKLrprND', 'value': 1.0, 'currency': 'IDR'}); }" class="btn-sewa">
                         <span class="id">Sewa Sekarang</span><span class="en">Rent Now</span>
                     </a>
                 </div>
@@ -319,7 +350,7 @@
                     <h4>Daihatsu Xenia Matic</h4>
                     <p class="id">Mobil keluarga luas dan nyaman, cocok untuk rombongan.</p>
                     <p class="en">Spacious family car, perfect for groups or families.</p>
-                    <a href="https://wa.me/6281238033247" class="btn-sewa">
+                    <a href="https://wa.me/6281238033247" target="_blank" onclick="if(typeof gtag === 'function') { gtag('event', 'conversion', {'send_to': 'AW-18092766626/ZDZwCI_MxZwcEKLrprND', 'value': 1.0, 'currency': 'IDR'}); }" class="btn-sewa">
                         <span class="id">Sewa Sekarang</span><span class="en">Rent Now</span>
                     </a>
                 </div>
@@ -331,7 +362,7 @@
                         <div class="swiper-slide"><img src="https://i.ibb.co.com/Cp1Kvz4H/IMG-20260415-192622.jpg"></div>
                         <div class="swiper-slide"><img src="https://i.ibb.co.com/pB6gmpNL/IMG-20260415-192840.jpg"></div>
                     </div>
-                    <div class="swiper-pagination"></div>
+              <div class="swiper-pagination"></div>
                 </div>
                 <div class="motor-info">
                     <h4>Galeri Customer</h4>
@@ -380,7 +411,7 @@
                 <p class="id">Unit mobil bersih dengan driver atau lepas kunci.</p>
                 <p class="en">Clean units with driver or self-drive options.</p>
             </div>
-    <div class="layanan-card">
+            <div class="layanan-card">
                 <i class="fas fa-map-location-dot"></i>
                 <h4 class="id">Paket Tour</h4><h4 class="en">Tour Packages</h4>
                 <p class="id">Eksplorasi destinasi ikonik Bali itinerary terbaik.</p>
@@ -401,6 +432,10 @@
     <footer>
         <p>© 2026 budi.balitours | Managed by MRD Digital Solution</p>
     </footer>
+
+    <a href="cariunit.html" class="floating-booking">
+        <i class="fas fa-calendar-check"></i> <span class="id">Cek Ketersediaan</span><span class="en">Availability</span>
+    </a>
 
     <div class="floating-nav">
         <a onclick="slowScroll('#home')" class="nav-item">
@@ -456,4 +491,4 @@
         });
     </script>
 </body>
-</html>
+        </html>

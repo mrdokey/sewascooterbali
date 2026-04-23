@@ -2,13 +2,13 @@
 <html lang="id">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18092766626"></script> 
-<script> 
-  window.dataLayer = window.dataLayer || []; 
-  function gtag(){dataLayer.push(arguments);} 
-  gtag('js', new Date()); 
-  gtag('config', 'AW-18092766626'); 
-</script>
-    
+    <script> 
+      window.dataLayer = window.dataLayer || []; 
+      function gtag(){dataLayer.push(arguments);} 
+      gtag('js', new Date()); 
+      gtag('config', 'AW-18092766626'); 
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3721/3721619.png">
@@ -21,8 +21,55 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+    /* FLOATING BOOKING BUTTON */
+.floating-booking {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--primary-color); /* Memakai warna orange khas Budi Bali Tour */
+    color: #fff;
+    padding: 16px 28px;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(243, 156, 18, 0.5);
+    font-weight: 800;
+    font-size: 1.05rem;
+    z-index: 9999;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    animation: slideUpFade 0.8s ease-out;
+}
+
+.floating-booking i {
+    font-size: 1.2rem;
+}
+
+.floating-booking:hover {
+    background-color: #d68910;
+    color: #fff;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(243, 156, 18, 0.6);
+}
+
+@keyframes slideUpFade {
+    0% { transform: translateY(50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Penyesuaian untuk layar HP biar tidak terlalu memakan tempat */
+@media (max-width: 768px) {
+    .floating-booking {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+}
+
         :root { 
-            --primary-color: #f39c12; /* Warna khas Budi Bali Tour */
+            --primary-color: #f39c12; 
             --dark-bg: #1a1d20; 
         }
         body { background-color: #fcfcfc; font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -51,11 +98,10 @@
         .img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .badge-status { position: absolute; top: 15px; left: 15px; padding: 6px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; z-index: 2; color: #fff; }
 
-/* Status Colors Updated */
-.status-available { background-color: #0d6efd !important; } /* Biru */
-.status-rent { background-color: #198754 !important; }      /* Hijau */
-.status-booked { background-color: #ff9800 !important; }    /* Orange (Warning) */
-
+        /* Status Colors */
+        .status-available { background-color: #0d6efd !important; } 
+        .status-rent { background-color: #198754 !important; }      
+        .status-booked { background-color: #ff9800 !important; }    
 
         /* Footer */
         footer { background: var(--dark-bg); color: #adb5bd; padding: 80px 0 30px; margin-top: 100px; }
@@ -151,7 +197,6 @@
     </div>
 </footer>
 
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     // Nav Scroll Effect
@@ -166,6 +211,27 @@
 
     const API_URL = "https://script.google.com/macros/s/AKfycbyvXVcpkMsnPKEqORXpQYMrNJ4spjzwACGP2abuDJEmSdz2_pNnxfa4lW2Afh_1fiqshw/exec";
     const adminWA = "6281238033247";
+
+    // FUNGSI BARU: Deteksi Gambar Otomatis
+    function getAutoImage(type, dbImage) {
+        // 1. Kalau di database kebetulan diisi link gambar, pakai gambar itu
+        if (dbImage && dbImage.trim() !== "") return dbImage;
+        
+        // 2. Kalau kosong, deteksi dari nama tipe motornya
+        const t = type.toLowerCase();
+        if (t.includes("nmax")) return "https://i.ibb.co.com/1JzVD8KB/NMAX-NEO-S-BLACK.png";
+        if (t.includes("vespa")) return "https://i.ibb.co.com/WpjDP07V/harga-vespa-matic-2023-1.webp";
+        if (t.includes("scoopy")) return "https://www.wahanahonda.com/assets/upload/produk/gambar/PRODUK_GAMBAR_48_2025-11-13.webp";
+        if (t.includes("vario")) return "https://i.ibb.co.com/9kbm6Pwh/images-15.jpg";
+        if (t.includes("beat")) return "https://i.ibb.co.com/BHDpWZXS/honda-beat-deluxe-smart-key-deluxe-matte-blue-01-warna.webp";
+        if (t.includes("fazzio")) return "https://i.ibb.co.com/nqgDF9kV/images-11.jpg";
+        if (t.includes("stylo")) return "https://i.ibb.co.com/ycFPFg1k/008881800-1706860240-20240202-144627.jpg";
+        if (t.includes("filano")) return "https://cdn.antaranews.com/cache/1200x800/2024/11/07/1000446916.jpg";
+        if (t.includes("pcx")) return "https://i.ibb.co.com/6Xy1kMq/honda-pcx-160.jpg"; 
+        
+        // 3. Gambar default universal (kalau tipe tidak dikenali)
+        return "https://i.ibb.co.com/WpjDP07V/harga-vespa-matic-2023-1.webp";
+    }
 
     async function loadCatalog() {
         try {
@@ -184,7 +250,7 @@
             let badgeClass = "status-available";
             let statusText = "Available";
 
-            if(statusRaw === "rent") {
+            if(statusRaw === "rent" || statusRaw === "bengkel") {
                 badgeClass = "status-rent";
                 statusText = "In Rent";
             } else if(statusRaw === "booked") {
@@ -192,17 +258,20 @@
                 statusText = "Booked";
             }
 
+            // Panggil fungsi gambar otomatis
+            const finalImage = getAutoImage(m[1], m[4]);
+
             container.innerHTML += `
                 <div class="col-lg-4 col-md-6">
                     <div class="card card-motor h-100 p-3">
                         <div class="img-wrapper rounded-4">
                             <span class="badge-status ${badgeClass}">${statusText}</span>
-                            <img src="${m[4] || 'https://via.placeholder.com/400x250'}" alt="${m[1]}">
+                            <img src="${finalImage}" alt="${m[1]}">
                         </div>
                         <div class="card-body px-1 text-center">
                             <small class="fw-bold text-warning text-uppercase">${m[2]}</small>
                             <h5 class="fw-bold text-dark mb-4">${m[1]}</h5>
-                            <button onclick="openDetail('${m[2]}', '${m[1]}', '${m[0]}', '${m[3]}', '${m[4]}', '${statusText}', '${badgeClass}')" class="btn btn-outline-dark w-100 py-2 rounded-3 fw-bold">Detail Unit</button>
+                            <button onclick="openDetail('${m[2]}', '${m[1]}', '${m[0]}', '${m[3]}', '${finalImage}', '${statusText}', '${badgeClass}')" class="btn btn-outline-dark w-100 py-2 rounded-3 fw-bold">Detail Unit</button>
                         </div>
                     </div>
                 </div>
@@ -212,12 +281,11 @@
 
     function openDetail(brand, type, plate, price, img, status, badgeClass) {
         const modalContent = document.getElementById('modalContent');
-        // Format Rupiah dengan titik
         const formattedPrice = Number(price).toLocaleString('id-ID');
 
         modalContent.innerHTML = `
             <div class="position-relative">
-                <img src="${img || 'https://via.placeholder.com/400x250'}" class="w-100" style="height:280px; object-fit:cover;">
+                <img src="${img}" class="w-100" style="height:280px; object-fit:cover;">
                 <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"></button>
             </div>
             <div class="p-4">
@@ -230,7 +298,7 @@
                     <div class="col-6"><div class="p-3 bg-light rounded-4 text-center"><small class="d-block text-muted">Status</small><span class="badge ${badgeClass} text-white">${status}</span></div></div>
                 </div>
                 <div class="d-grid gap-2">
-                    <a href="https://wa.me/${adminWA}?text=Halo Budi Bali Tour, saya ingin sewa ${brand} ${type} (${plate}). Apakah tersedia?" target="_blank" class="btn btn-success py-3 fw-bold rounded-3"><i class="fab fa-whatsapp me-2"></i>Hubungi Admin</a>
+                    <a href="https://wa.me/${adminWA}?text=Halo Budi Bali Tour, saya tertarik dengan unit ${brand} ${type} (${plate}). Apakah bisa saya sewa?" target="_blank" class="btn btn-success py-3 fw-bold rounded-3"><i class="fab fa-whatsapp me-2"></i>Hubungi Admin</a>
                 </div>
             </div>
         `;
@@ -238,6 +306,9 @@
     }
     loadCatalog();
 </script>
+<a href="cariunit.html" class="floating-booking">
+    <i class="fas fa-calendar-check"></i> Cek Ketersediaan
+</a>
 </body>
-  </html>
-
+    </html>
+    

@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18092766626"></script> 
+    <script> 
+      window.dataLayer = window.dataLayer || []; 
+      function gtag(){dataLayer.push(arguments);} 
+      gtag('js', new Date()); 
+      gtag('config', 'AW-18092766626'); 
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budi.Balitour - Booking System</title>
@@ -228,6 +235,17 @@
         `;
 
         document.getElementById('confirmWaBtn').onclick = () => {
+            
+            // 2. INI TAG KEDUA / EVENT SNIPPET GOOGLE ADS (WAJIB ADA DI TOMBOL WA)
+            if(typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-18092766626/ZDZwCI_MxZwcEKLrprND',
+                    'value': 1.0,
+                    'currency': 'IDR'
+                });
+            }
+            // ====================================================================
+
             // Teks WA yang dikirim akan menyisipkan referensi plat nomor untuk Om Budi
             const text = `Hello Budi.Balitour, I want to book:%0A%0A🛵 *Model:* ${modelName}%0A📅 *Dates:* ${sDate} to ${eDate}%0A💰 *Price:* IDR ${Number(harga).toLocaleString('id-ID')}/day%0A%0A(Admin Ref: Aval Unit - ${referensiPlat})%0A%0AIs this available to proceed?`;
             window.open(`https://wa.me/${adminNumber}?text=${text}`, '_blank');

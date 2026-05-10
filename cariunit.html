@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18092766626"></script> 
     <script> 
@@ -13,19 +13,46 @@
     <title>Budi.Balitour - Booking System</title>
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3721/3721619.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome untuk Icon Navigasi -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         body { background-color: #f4f7f6; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        /* MULTI-LANGUAGE TOGGLE UNTUK NAVIGASI */
+        body.lang-id .en { display: none !important; }
+        body.lang-en .id { display: none !important; }
+
         .hero { background: #343a40; color: white; padding: 60px 0; text-align: center; margin-bottom: 30px; }
-        .card-motor { border: none; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: 0.3s; overflow: hidden; }
+        .card-motor { border: none; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: 0.3s; overflow: hidden; background: #fff; }
         .card-motor:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); border-color: #007bff; }
         .search-box { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-top: -80px; }
         .btn-primary { background-color: #007bff; border: none; padding: 12px; }
         .btn-success { padding: 10px; border-radius: 8px; }
         .placeholder-text { color: #adb5bd; margin-top: 50px; font-weight: 300; }
-        .available-badge { font-size: 1rem; font-weight: bold; letter-spacing: 1px; }
+        
+        /* Image Wrapper CSS */
+        .img-wrapper { position: relative; height: 220px; overflow: hidden; border-radius: 15px 15px 0 0; background: #eee; }
+        .img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        .available-badge { position: absolute; top: 15px; left: 15px; font-size: 0.85rem; font-weight: bold; letter-spacing: 1px; z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+
+        /* NATIVE FLOATING NAV */
+        .floating-nav {
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            display: flex; justify-content: space-around; padding: 12px 0 20px;
+            box-shadow: 0 -2px 20px rgba(0,0,0,0.08); z-index: 2000;
+            border-radius: 25px 25px 0 0; border-top: 1px solid rgba(255,255,255,0.3);
+        }
+        .nav-item { text-align: center; color: #555; text-decoration: none; font-size: 0.65rem; font-weight: 600; cursor: pointer; flex: 1; }
+        .nav-item i { display: block; font-size: 1.3rem; color: #f39c12; margin-bottom: 4px; transition: 0.2s; }
+        .nav-item:active i { transform: scale(0.8); }
+
+        /* Margin bawah agar card tidak tertutup menu melayang */
+        #motorContainer { padding-bottom: 100px; }
     </style>
 </head>
-<body>
+<body class="lang-id">
 
 <div class="hero">
     <div class="container">
@@ -80,6 +107,30 @@
   </div>
 </div>
 
+<!-- Floating Nav Bawah -->
+<div class="floating-nav">
+    <a href="index.html" class="nav-item">
+        <i class="fas fa-home"></i>
+        Home
+    </a>
+    <a href="showunit.html" class="nav-item">
+        <i class="fas fa-motorcycle"></i>
+        <span class="id">Armada</span><span class="en">Fleet</span>
+    </a>
+    <a href="index.html#layanan" class="nav-item">
+        <i class="fas fa-hand-holding-heart"></i>
+        <span class="id">Layanan</span><span class="en">Services</span>
+    </a>
+    <a href="cariunit.html" class="nav-item">
+        <i class="fas fa-calendar-check"></i>
+        <span class="id">Cek Unit</span><span class="en">Check Unit</span>
+    </a>
+    <a href="https://wa.me/6281238033247" class="nav-item">
+        <i class="fab fa-whatsapp"></i>
+        WhatsApp
+    </a>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     // KONFIGURASI
@@ -89,6 +140,22 @@
     let motors = [];
     let bookings = [];
     let isDataLoaded = false;
+
+    // Fungsi Ambil Gambar Otomatis (Sama seperti showunit.html)
+    function getAutoImage(type) {
+        const t = type.toLowerCase();
+        if (t.includes("nmax")) return "https://i.ibb.co.com/1JzVD8KB/NMAX-NEO-S-BLACK.png";
+        if (t.includes("vespa")) return "https://i.ibb.co.com/WpjDP07V/harga-vespa-matic-2023-1.webp";
+        if (t.includes("scoopy")) return "https://www.wahanahonda.com/assets/upload/produk/gambar/PRODUK_GAMBAR_48_2025-11-13.webp";
+        if (t.includes("vario")) return "https://i.ibb.co.com/9kbm6Pwh/images-15.jpg";
+        if (t.includes("beat")) return "https://i.ibb.co.com/BHDpWZXS/honda-beat-deluxe-smart-key-deluxe-matte-blue-01-warna.webp";
+        if (t.includes("fazzio")) return "https://i.ibb.co.com/nqgDF9kV/images-11.jpg";
+        if (t.includes("stylo")) return "https://i.ibb.co.com/ycFPFg1k/008881800-1706860240-20240202-144627.jpg";
+        if (t.includes("filano")) return "https://cdn.antaranews.com/cache/1200x800/2024/11/07/1000446916.jpg";
+        if (t.includes("avanza manual")) return "https://i.ibb.co.com/dCwwwJ6/3205132941.jpg";
+        if (t.includes("xenia")) return "https://dsoodysseusstprod.blob.core.windows.net/strapi-media/assets/sys_master_media_h6d_h39_8819370557470_Xenia_20terbaru_132bc6a428.jpg";
+        return "https://i.ibb.co.com/WpjDP07V/harga-vespa-matic-2023-1.webp";
+    }
 
     // 1. Ambil data saat halaman dibuka
     async function fetchData() {
@@ -115,7 +182,7 @@
         });
     }
 
-    // 3. Fungsi Render HTML (Dengan Logika Grouping)
+    // 3. Fungsi Render HTML (Dengan Logika Grouping & Gambar)
     function renderList(sDate, eDate) {
         const container = document.getElementById('motorContainer');
         container.innerHTML = "";
@@ -146,7 +213,8 @@
                     type: type,
                     price: price,
                     count: 0,
-                    samplePlate: plate // Simpan 1 pelat untuk referensi admin
+                    samplePlate: plate, // Simpan 1 pelat untuk referensi admin
+                    image: getAutoImage(type) // Ambil url gambar
                 };
             }
             availableGroups[groupKey].count++;
@@ -163,12 +231,18 @@
             
             container.innerHTML += `
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card card-motor h-100 p-4 text-center border-top border-4 border-primary">
-                        <div class="card-body d-flex flex-column justify-content-between p-0">
+                    <div class="card card-motor h-100 p-0 text-center border-top border-4 border-primary">
+                        
+                        <!-- Wrapper Gambar -->
+                        <div class="img-wrapper position-relative">
+                            <span class="badge bg-primary text-white py-2 px-3 available-badge rounded-pill">
+                                ${group.count} Unit(s) Available
+                            </span>
+                            <img src="${group.image}" alt="${group.type}">
+                        </div>
+
+                        <div class="card-body d-flex flex-column justify-content-between p-4">
                             <div>
-                                <span class="badge bg-primary text-white py-2 px-3 mb-3 available-badge rounded-pill">
-                                    ${group.count} Unit(s) Available
-                                </span>
                                 <h4 class="fw-bold text-dark mb-0 text-uppercase">${group.brand}</h4>
                                 <h5 class="text-secondary mb-4">${group.type}</h5>
                                 
